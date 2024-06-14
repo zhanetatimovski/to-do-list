@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Get It Done | @ViewData["Title"]</title>
+	<link rel="stylesheet" type="text/css" href="/css/site.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+<body>
+	<div id="wrap">
+		<div class="container">
+			<a asp-controller="Home" asp-action="Index">
+				<img class="logo" src="/images/logo/logo.png">
+			</a>
+			@RenderBody()
+		</div>
+	</div>
+	<footer role="contentinfo">
+		Copyright &copy; Zhaneta Timovski
+	</footer>
+</body>
+</html>

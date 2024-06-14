@@ -1,0 +1,189 @@
+﻿/* Colors */
+:root {
+    --main: #617ec2;
+    --secondary: #a5a5a5;
+    --ternary: #cacdd9;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background-image: url("../images/line.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Montserrat', sans-serif;
+    overflow-y: scroll;
+}
+
+#wrap {
+    position: relative;
+    padding: 150px 0 50px;
+}
+
+.container {
+    position: relative;
+    width: 550px;
+    padding-top: 125px;
+    padding-bottom: 30px;
+    margin: 0 auto 50px;
+    background-color: white;
+    border: 2px solid var(--secondary);
+    box-shadow: var(--secondary) 1px 6px 15px 0;
+    text-align: center;
+}
+
+    .container .logo {
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        top: -80px;
+        left: 0;
+        right: 0;
+        width: 400px;
+        height: 130px;
+    }
+
+/* Footer */
+footer {
+    position: absolute;
+    border: 0;
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    border-top: 1px solid var(--secondary);
+    box-shadow: var(--secondary) 1px 6px 15px 0;
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+}
+
+/* Remove margins and padding from the list */
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+    /* Style the list items */
+    ul li {
+        cursor: pointer;
+        position: relative;
+        padding: 12px 8px;
+        list-style-type: none;
+        background: #eee;
+        font-size: 18px;
+        transition: background 0.2s;
+        /* make the list items unselectable */
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+        /* Set all odd list items to a different color (zebra-stripes) */
+        ul li:nth-child(odd) {
+            background: #f9f9f9;
+        }
+
+        /* Darker background-color on hover */
+        ul li:hover {
+            background: #ddd;
+        }
+
+        /* When clicked on, add a background color and strike out text */
+        ul li.checked {
+            background: #888;
+            color: #fff;
+            text-decoration: line-through;
+        }
+
+            /* Add a "checked" mark when clicked on */
+            ul li.checked::before {
+                content: '';
+                position: absolute;
+                border-color: #fff;
+                border-style: solid;
+                border-width: 0 2px 2px 0;
+                top: 12px;
+                left: 16px;
+                transform: rotate(45deg);
+                height: 15px;
+                width: 7px;
+            }
+
+/* Style the input */
+.add-wrap {
+    position: relative;
+}
+
+input {
+    border: none;
+    outline: none;
+    width: calc(100% - 50px);
+    padding: 10px 40px 10px 10px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.add {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 39px;
+    height: 39px;
+    background-color: transparent;
+    background: url("../images/add.png");
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: center;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+    .add:hover {
+        background-color: #ddd;
+    }
+
+.delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 36px;
+    height: 46px;
+    background: url(../images/delete.png);
+    background-repeat: no-repeat;
+    background-size: 22px 22px;
+    background-position: center;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+
+a.listButton {
+    display: block;
+    padding: 14px 20px;
+    background: #eee;
+    margin: 15px auto;
+    font-size: 18px;
+    text-decoration: none;
+    color: #4e4b4b;
+    transition: background 300ms, color 300ms;
+}
+
+    a.listButton:hover {
+        background: #888;
+        color: #fff;
+    }
+
+h3 {
+    font-size: 22px;
+    color: #5d5e63;
+}

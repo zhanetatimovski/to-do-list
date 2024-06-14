@@ -1,0 +1,14 @@
+﻿@{
+	@using ToDoList.ViewModels.Home
+
+	ViewData["Title"] = "Home";
+	var toDoListViewModels = Model as List<ToDoListViewModel>;
+}
+
+<div class="add-wrap">
+	<input type="text" id="myInput" placeholder="Title..."> <button type="button" class="add" title="Add"></button>
+	@foreach (ToDoListViewModel toDoList in toDoListViewModels)
+	{
+		<a asp-controller="Activities" asp-action="Index" asp-route-listId="@toDoList.Id" class="listButton">@toDoList.Name</a>
+	}
+</div>

@@ -1,0 +1,20 @@
+﻿@{
+	@using ToDoList.ViewModels.Activities
+
+	ViewData["Title"] = "Activities";
+	var listWithActivitiesViewModel = Model as ListWithActivitiesViewModel;
+}
+
+<h3>@listWithActivitiesViewModel.Name</h3>
+<div class="add-wrap">
+	<input type="text" id="myInput" placeholder="Title..."> <button type="button" class="add" title="Add"></button>
+</div>
+<ul id="myUL">
+	@foreach (ActivityViewModel activity in listWithActivitiesViewModel.Activities)
+	{
+		<li class="@(activity.IsDone ? "checked" : "")">
+			<span>@activity.Name</span>
+			<button type="button" class="delete" title="Delete"></button>
+		</li>
+	}
+</ul>

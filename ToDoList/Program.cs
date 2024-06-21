@@ -5,6 +5,7 @@ using Microsoft.Extensions.Hosting;
 using ToDoList.Models.Repositories;
 using ToDoList.Models.Repositories.Contracts;
 using ToDoList.Models.Repositories.EntityFramework;
+using ToDoList.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<IToDoListsRepository, ToDoListsRepository>();
 builder.Services.AddTransient<IActivitiesRepository, ActivitiesRepository>();
+builder.Services.AddTransient<IActivitiesService, ActivitiesService>();
 
 var app = builder.Build();
 

@@ -6,5 +6,5 @@ namespace ToDoList.Models.Repositories.Contracts;
 public interface IToDoListsRepository
 {
 	Task<List<ToDoList>> GetAll();
-	Task<ToDoList> Get(int id);
+	Task<ToDoList?> Get(int id);
 }

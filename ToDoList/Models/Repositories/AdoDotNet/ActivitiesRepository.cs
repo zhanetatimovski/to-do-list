@@ -7,7 +7,7 @@ namespace ToDoList.Models.Repositories.AdoDotNet;
 
 public class ActivitiesRepository : Repository, IActivitiesRepository
 {
-	public async Task<List<Activity>> GetAll(int listId)
+	public async Task<IReadOnlyList<Activity>> GetAll(int listId)
 	{
 		var activities = new List<Activity>();
 
@@ -31,5 +31,30 @@ public class ActivitiesRepository : Repository, IActivitiesRepository
 		}
 
 		return activities;
+	}
+
+	public bool IsUnique(string activityName)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public async Task<Activity?> GetById(int activityId)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public async Task<Activity> Create(Activity activity)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public async Task Update(Activity activity)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public async Task Delete(Activity activity)
+	{
+		throw new System.NotImplementedException();
 	}
 }

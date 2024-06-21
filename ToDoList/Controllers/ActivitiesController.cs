@@ -1,38 +1,33 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ToDoList.Models;
-using ToDoList.Models.Repositories.Contracts;
+using ToDoList.Services;
 using ToDoList.ViewModels.Activities;
 
 namespace ToDoList.Controllers;
 
-public class ActivitiesController(IToDoListsRepository toDoListsRepository, IActivitiesRepository activitiesRepository) : Controller
+public class ActivitiesController(IActivitiesService activitiesService) : Controller
 {
 	public async Task<IActionResult> Index(int listId)
 	{
-		var toDoList = await toDoListsRepository.Get(listId);
-		if (toDoList == null)
-		{
-			return RedirectToAction("ErrorNotFound");
-		}
-
-		var listWithActivitiesViewModel = new ListWithActivitiesViewModel
-		{
-			Name = toDoList.Name
-		};
-
-		List<Activity> activities = await activitiesRepository.GetAll(listId);
-		foreach (var activity in activities)
-		{
-			listWithActivitiesViewModel.Activities.Add(new ActivityViewModel
-			{
-				Id = activity.Id,
-				Name = activity.Name,
-				IsDone = activity.IsDone
-			});
-		}
-
+		var listWithActivitiesViewModel = await activitiesService.GetAll(listId);
 		return View(listWithActivitiesViewModel);
+	}
+
+	public async Task<IActionResult> Create(ListWithActivitiesViewModel model)
+	{
+		var activity = await activitiesService.Create(model);
+		return Json(activity);
+	}
+
+	public async Task<IActionResult> Update(ActivityViewModel model)
+	{
+		await activitiesService.Update(model);
+		return Json(model);
+	}
+
+	public async Task<IActionResult> Delete(int activityId)
+	{
+		await activitiesService.Delete(activityId);
+		return Json(activityId);
 	}
 }

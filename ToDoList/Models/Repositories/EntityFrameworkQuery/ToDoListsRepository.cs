@@ -8,7 +8,7 @@ namespace ToDoList.Models.Repositories.EntityFrameworkQuery
 {
 	public class ToDoListsRepository(ToDoListContext context) : Repository, IToDoListsRepository
 	{
-		public async Task<ToDoList> Get(int id)
+		public async Task<ToDoList?> Get(int id)
 		{
 			return await (from tdl in context.ToDoLists.AsNoTracking() where tdl.Id == id select tdl).FirstOrDefaultAsync();
 		}
